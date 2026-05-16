@@ -1,0 +1,23 @@
+SQL Queries
+
+1. Total Customers
+
+SELECT COUNT(*) FROM churn_data;
+
+2. Highest Churn Contract
+
+SELECT Contract, COUNT(*) AS churn_count FROM churn_data
+    -> WHERE Churn = "Yes" GROUP BY Contract ORDER BY churn_count DESC;
+
+3. Churn Percentage
+
+SELECT Churn, COUNT(*) * 100 / (SELECT COUNT(*) FROM churn_data) AS churn_percentage
+    -> FROM churn_data GROUP BY Churn;
+
+4. Gender-Wise Customers
+
+SELECT gender, COUNT(*) FROM Churn_data GROUP BY gender;
+
+5. Average Monthly Charges
+
+SELECT AVG("MonthlyCharges") AS avg_monthly_charge FROM churn_data;
